@@ -1,3 +1,2 @@
 # Real-Estate-CRM-Module
-Demo Link 
-file:///C:/Users/dilee/Downloads/real_estate_crm.html
+https://stuck-violet-cbbaygkh0r.edgeone.app/
