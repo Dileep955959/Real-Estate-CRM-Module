@@ -1,322 +1,114 @@
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, sans-serif;
-}
 
-body{
-    background:#f5f5f2;
-}
-
-/* Main Layout */
-.app{
-    display:flex;
-    min-height:100vh;
-}
-
-/* Sidebar */
-.sidebar{
-    width:240px;
-    background:#efefe9;
-    border-right:1px solid #d8d8d8;
-    padding:20px 0;
-}
-
-.logo{
-    padding:0 20px 20px;
-    font-size:30px;
-    font-weight:bold;
-    color:#111;
-    border-bottom:1px solid #d8d8d8;
-}
-
-.logo span{
-    display:block;
-    font-size:14px;
-    font-weight:normal;
-    color:#666;
-    margin-top:5px;
-}
-
-/* Menu */
-.nav-item{
-    padding:14px 25px;
-    font-size:20px;
-    color:#222;
-    cursor:pointer;
-    transition:0.3s;
-}
-
-.nav-item:hover{
-    background:#e2e2dc;
-}
-
-.nav-item.active{
-    background:white;
-    font-weight:bold;
-    border-left:4px solid #3b82f6;
-}
-
-/* Main Content */
-.main{
-    flex:1;
-    padding:25px;
-}
-
-.page-title{
-    font-size:36px;
-    font-weight:bold;
-    margin-bottom:25px;
-    color:#111;
-}
-
-/* Top Cards */
-.cards-row{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:20px;
-    margin-bottom:25px;
-}
-
-.metric{
-    background:#f7f7f2;
-    border-radius:12px;
-    padding:20px;
-    border:1px solid #ddd;
-}
-
-.metric-label{
-    font-size:18px;
-    color:#444;
-}
-
-.metric-val{
-    font-size:48px;
-    font-weight:bold;
-    margin:10px 0;
-}
-
-.metric-sub{
-    font-size:18px;
-    color:#555;
-}
-
-/* Card Box */
-.card{
-    background:#fff;
-    border:1px solid #dcdcdc;
-    border-radius:16px;
-    padding:25px;
-    margin-bottom:25px;
-}
-
-.card-title{
-    font-size:28px;
-    font-weight:bold;
-    margin-bottom:20px;
-}
-
-/* 2 Column */
-.two-col{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:20px;
-    margin-bottom:25px;
-}
-
-/* Chart Bars */
-.chart-bars{
-    display:flex;
-    align-items:flex-end;
-    gap:10px;
-    height:220px;
-}
-
-.bar{
-    width:55px;
-    background:#c7d5e8;
-    border-radius:6px 6px 0 0;
-}
-
-.bar:last-child{
-    background:#4b74b0;
-}
-
-/* Table */
-table{
-    width:100%;
-    border-collapse:collapse;
-}
-
-table td{
-    padding:12px 0;
-    border-bottom:1px solid #eee;
-    font-size:22px;
-}
-
-table td:last-child{
-    text-align:right;
-    font-weight:bold;
-}
-
-/* Recent Activity */
-.timeline{
-    padding-left:15px;
-}
-
-.tl-item{
-    margin-bottom:18px;
-    position:relative;
-    padding-left:20px;
-}
-
-.tl-item::before{
-    content:'';
-    width:10px;
-    height:10px;
-    background:#bcbcbc;
-    border-radius:50%;
-    position:absolute;
-    left:0;
-    top:8px;
-}
-
-.tl-time{
-    font-size:18px;
-    color:#666;
-    margin-bottom:5px;
-}
-
-.tl-text{
-    font-size:24px;
-    color:#111;
-}
-
-/* Responsive */
-@media(max-width:992px){
-    .cards-row{
-        grid-template-columns:repeat(2,1fr);
-    }
-    .two-col{
-        grid-template-columns:1fr;
-    }
-}
-
-@media(max-width:768px){
-    .app{
-        flex-direction:column;
-    }
-
-    .sidebar{
-        width:100%;
-    }
-
-    .cards-row{
-        grid-template-columns:1fr;
-    }
-}
-</style>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-:root{--gap:12px;--rad:var(--border-radius-lg)}
 body{font-family:var(--font-sans);color:var(--color-text-primary);background:transparent}
-.app{display:flex;height:600px;border:0.5px solid var(--color-border-tertiary);border-radius:var(--rad);overflow:hidden}
-.sidebar{width:190px;flex-shrink:0;background:var(--color-background-secondary);border-right:0.5px solid var(--color-border-tertiary);display:flex;flex-direction:column;padding:12px 0}
-.logo{padding:8px 16px 16px;font-size:15px;font-weight:500;color:var(--color-text-primary);border-bottom:0.5px solid var(--color-border-tertiary);margin-bottom:8px}
-.logo span{font-size:11px;color:var(--color-text-secondary);display:block;font-weight:400}
-.nav-item{display:flex;align-items:center;gap:10px;padding:8px 16px;cursor:pointer;font-size:13px;color:var(--color-text-secondary);border-radius:0;transition:background .15s,color .15s}
-.nav-item:hover{background:var(--color-background-primary);color:var(--color-text-primary)}
-.nav-item.active{background:var(--color-background-primary);color:var(--color-text-primary);font-weight:500}
-.nav-icon{width:16px;height:16px;opacity:.7;flex-shrink:0}
+.app{display:flex;height:620px;border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);overflow:hidden}
+.sidebar{width:195px;flex-shrink:0;background:#1e2a4a;display:flex;flex-direction:column;padding:0}
+.logo{padding:16px 18px;border-bottom:0.5px solid rgba(255,255,255,0.12);margin-bottom:6px}
+.logo-title{font-size:16px;font-weight:500;color:#fff;letter-spacing:.3px}
+.logo-sub{font-size:11px;color:rgba(255,255,255,0.5);margin-top:2px}
+.nav-item{display:flex;align-items:center;gap:10px;padding:9px 18px;cursor:pointer;font-size:12.5px;color:rgba(255,255,255,0.6);transition:background .15s,color .15s;border-left:3px solid transparent}
+.nav-item:hover{background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.9)}
+.nav-item.active{background:rgba(255,255,255,0.1);color:#fff;font-weight:500;border-left:3px solid #60a5fa}
+.nav-icon{width:15px;height:15px;flex-shrink:0;opacity:.7}
+.nav-item.active .nav-icon{opacity:1}
 .main{flex:1;overflow-y:auto;background:var(--color-background-tertiary)}
-.view{display:none;padding:16px}
+.view{display:none;padding:18px}
 .view.active{display:block}
-.page-title{font-size:16px;font-weight:500;margin-bottom:14px}
-.cards-row{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gap);margin-bottom:16px}
-.metric{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:12px 14px}
-.metric-label{font-size:12px;color:var(--color-text-secondary);margin-bottom:4px}
-.metric-val{font-size:22px;font-weight:500}
-.metric-sub{font-size:11px;color:var(--color-text-secondary);margin-top:2px}
-.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--rad);padding:14px;margin-bottom:12px}
-.card-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
-.card-title{font-size:14px;font-weight:500}
+.page-title{font-size:15px;font-weight:500;margin-bottom:16px;color:var(--color-text-primary)}
+.cards-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px}
+.metric{border-radius:var(--border-radius-md);padding:13px 15px;position:relative;overflow:hidden}
+.m-blue{background:#dbeafe;border:0.5px solid #93c5fd}
+.m-purple{background:#ede9fe;border:0.5px solid #c4b5fd}
+.m-green{background:#d1fae5;border:0.5px solid #6ee7b7}
+.m-amber{background:#fef3c7;border:0.5px solid #fcd34d}
+.metric-label{font-size:11px;font-weight:500;letter-spacing:.4px;text-transform:uppercase;margin-bottom:4px}
+.lb-blue{color:#1d4ed8}.lb-purple{color:#6d28d9}.lb-green{color:#065f46}.lb-amber{color:#92400e}
+.metric-val{font-size:22px;font-weight:500;color:var(--color-text-primary)}
+.metric-sub{font-size:11px;margin-top:3px}
+.mb-blue{color:#2563eb}.mb-purple{color:#7c3aed}.mb-green{color:#059669}.mb-amber{color:#b45309}
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px;margin-bottom:12px}
+.card-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.card-title{font-size:13px;font-weight:500}
 table{width:100%;border-collapse:collapse;font-size:12px}
-th{text-align:left;padding:6px 10px;color:var(--color-text-secondary);border-bottom:0.5px solid var(--color-border-tertiary);font-weight:400}
+th{text-align:left;padding:6px 10px;color:var(--color-text-secondary);border-bottom:0.5px solid var(--color-border-tertiary);font-weight:400;font-size:11px;text-transform:uppercase;letter-spacing:.4px}
 td{padding:7px 10px;border-bottom:0.5px solid var(--color-border-tertiary);color:var(--color-text-primary)}
 tr:last-child td{border-bottom:none}
 tr:hover td{background:var(--color-background-secondary)}
-.badge{display:inline-block;padding:2px 8px;border-radius:20px;font-size:11px;font-weight:400}
-.b-new{background:var(--color-background-info);color:var(--color-text-info)}
-.b-contacted{background:var(--color-background-warning);color:var(--color-text-warning)}
-.b-qualified{background:var(--color-background-success);color:var(--color-text-success)}
-.b-closed{background:var(--color-background-success);color:var(--color-text-success)}
-.b-lost{background:var(--color-background-danger);color:var(--color-text-danger)}
-.b-avail{background:var(--color-background-success);color:var(--color-text-success)}
-.b-sold{background:var(--color-background-danger);color:var(--color-text-danger)}
-.b-pend{background:var(--color-background-warning);color:var(--color-text-warning)}
-.b-neg{background:var(--color-background-warning);color:var(--color-text-warning)}
-.b-agreed{background:var(--color-background-info);color:var(--color-text-info)}
-.btn{background:transparent;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);padding:5px 12px;font-size:12px;cursor:pointer;color:var(--color-text-primary);font-family:var(--font-sans)}
+.badge{display:inline-block;padding:2px 8px;border-radius:20px;font-size:10.5px;font-weight:500}
+.b-new{background:#dbeafe;color:#1d4ed8}
+.b-contacted{background:#fef3c7;color:#92400e}
+.b-qualified{background:#d1fae5;color:#065f46}
+.b-closed{background:#d1fae5;color:#065f46}
+.b-lost{background:#fee2e2;color:#991b1b}
+.b-avail{background:#d1fae5;color:#065f46}
+.b-sold{background:#fee2e2;color:#991b1b}
+.b-pend{background:#fef3c7;color:#92400e}
+.btn{background:transparent;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);padding:6px 14px;font-size:12px;cursor:pointer;color:var(--color-text-primary);font-family:var(--font-sans)}
 .btn:hover{background:var(--color-background-secondary)}
-.btn-primary{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent}
-.btn-primary:hover{opacity:.85}
-.kanban{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap)}
-.k-col{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px}
-.k-col-title{font-size:12px;font-weight:500;color:var(--color-text-secondary);margin-bottom:8px;padding:0 2px}
-.k-card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:10px;margin-bottom:8px;font-size:12px}
-.k-card-name{font-weight:500;margin-bottom:3px;font-size:13px}
-.k-card-sub{color:var(--color-text-secondary);font-size:11px}
-.k-card-val{font-size:13px;font-weight:500;color:var(--color-text-info);margin-top:5px}
-.chart-bars{display:flex;align-items:flex-end;gap:6px;height:90px;padding-bottom:4px}
+.btn-primary{background:#2563eb;color:#fff;border-color:transparent;border-radius:var(--border-radius-md)}
+.btn-primary:hover{background:#1d4ed8}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.chart-bars{display:flex;align-items:flex-end;gap:7px;height:95px}
 .bar-wrap{display:flex;flex-direction:column;align-items:center;gap:3px;flex:1}
-.bar{border-radius:3px 3px 0 0;background:var(--color-background-info);min-height:4px;width:100%;transition:height .3s}
+.bar{border-radius:4px 4px 0 0;min-height:4px;width:100%}
 .bar-label{font-size:10px;color:var(--color-text-secondary)}
-.two-col{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap)}
-.agent-row{display:flex;align-items:center;gap:10px;padding:6px 0;border-bottom:0.5px solid var(--color-border-tertiary)}
-.agent-row:last-child{border-bottom:none}
-.avatar{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;flex-shrink:0}
-.av-b{background:var(--color-background-info);color:var(--color-text-info)}
-.av-g{background:var(--color-background-success);color:var(--color-text-success)}
-.av-a{background:var(--color-background-warning);color:var(--color-text-warning)}
-.av-r{background:var(--color-background-danger);color:var(--color-text-danger)}
-.agent-name{font-size:13px;font-weight:500;flex:1}
-.agent-stat{font-size:12px;color:var(--color-text-secondary)}
-.agent-deals{font-size:13px;font-weight:500;color:var(--color-text-info)}
-.progress{height:5px;background:var(--color-background-secondary);border-radius:3px;margin-top:3px;overflow:hidden}
-.progress-fill{height:100%;background:var(--color-background-info);border-radius:3px}
-.prop-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-.prop-card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);overflow:hidden;cursor:pointer}
-.prop-img{height:80px;display:flex;align-items:center;justify-content:center;font-size:28px}
-.prop-img-res{background:var(--color-background-info)}
-.prop-img-com{background:var(--color-background-warning)}
-.prop-body{padding:10px 12px}
-.prop-title{font-size:13px;font-weight:500}
-.prop-sub{font-size:11px;color:var(--color-text-secondary);margin:2px 0}
-.prop-price{font-size:14px;font-weight:500;color:var(--color-text-info);margin-top:4px}
-.prop-row{display:flex;justify-content:space-between;align-items:center;margin-top:5px}
+.kanban{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.k-col{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px}
+.k-col-title{font-size:11px;font-weight:500;color:var(--color-text-secondary);margin-bottom:8px;text-transform:uppercase;letter-spacing:.4px}
+.k-card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:10px;margin-bottom:8px}
+.k-card-name{font-weight:500;font-size:12.5px;margin-bottom:2px}
+.k-card-sub{color:var(--color-text-secondary);font-size:11px}
+.k-card-val{font-size:12.5px;font-weight:500;margin-top:5px}
+.kv-neg{color:#d97706}.kv-agr{color:#2563eb}.kv-cls{color:#059669}
+.k-strip{width:100%;height:2px;border-radius:2px;margin-bottom:8px}
+.ks-neg{background:#f59e0b}.ks-agr{background:#3b82f6}.ks-cls{background:#10b981}
 .timeline{position:relative;padding-left:18px}
 .tl-item{position:relative;padding-bottom:14px}
-.tl-item::before{content:'';position:absolute;left:-12px;top:6px;width:6px;height:6px;border-radius:50%;background:var(--color-border-secondary)}
-.tl-item::after{content:'';position:absolute;left:-10px;top:14px;width:2px;height:calc(100% - 8px);background:var(--color-border-tertiary)}
+.tl-item::before{content:'';position:absolute;left:-12px;top:6px;width:7px;height:7px;border-radius:50%}
+.tl-dot-blue::before{background:#3b82f6}
+.tl-dot-green::before{background:#10b981}
+.tl-dot-amber::before{background:#f59e0b}
+.tl-dot-purple::before{background:#8b5cf6}
+.tl-item::after{content:'';position:absolute;left:-9px;top:14px;width:1px;height:calc(100% - 8px);background:var(--color-border-tertiary)}
 .tl-item:last-child::after{display:none}
 .tl-time{font-size:10px;color:var(--color-text-secondary)}
 .tl-text{font-size:12px;margin-top:1px}
 .tl-bold{font-weight:500}
-input,select{font-family:var(--font-sans);font-size:13px;background:var(--color-background-primary);border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);color:var(--color-text-primary);padding:6px 10px;width:100%}
-.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
-.form-label{font-size:12px;color:var(--color-text-secondary);margin-bottom:3px}
-.notif{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);margin-bottom:8px}
-.notif-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:3px}
-.dot-info{background:var(--color-text-info)}
-.dot-warn{background:var(--color-text-warning)}
-.dot-success{background:var(--color-text-success)}
+.funnel-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:0.5px solid var(--color-border-tertiary);font-size:12px}
+.funnel-row:last-child{border-bottom:none}
+.funnel-bar-bg{flex:1;height:5px;background:var(--color-background-secondary);border-radius:3px;margin:0 10px;overflow:hidden}
+.funnel-bar-fill{height:100%;border-radius:3px}
+.agent-row{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:0.5px solid var(--color-border-tertiary)}
+.agent-row:last-child{border-bottom:none}
+.avatar{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;flex-shrink:0}
+.av-b{background:#dbeafe;color:#1d4ed8}.av-g{background:#d1fae5;color:#065f46}.av-a{background:#fef3c7;color:#92400e}.av-r{background:#fee2e2;color:#991b1b}
+.agent-name{font-size:12.5px;font-weight:500;flex:1}
+.agent-stat{font-size:11px;color:var(--color-text-secondary)}
+.progress{height:4px;background:var(--color-background-secondary);border-radius:3px;margin-top:4px;overflow:hidden}
+.progress-fill{height:100%;background:#3b82f6;border-radius:3px}
+.agent-deals{font-size:12.5px;font-weight:500;color:#2563eb}
+.prop-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.prop-card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);overflow:hidden;cursor:pointer;transition:border-color .2s}
+.prop-card:hover{border-color:var(--color-border-secondary)}
+.prop-img{height:70px;display:flex;align-items:center;justify-content:center}
+.pi-res{background:#dbeafe}.pi-com{background:#ede9fe}.pi-vil{background:#d1fae5}.pi-flt{background:#fee2e2}
+.prop-icon{font-size:26px}
+.prop-body{padding:10px 12px}
+.prop-title{font-size:12.5px;font-weight:500}
+.prop-sub{font-size:11px;color:var(--color-text-secondary);margin:2px 0}
+.prop-price{font-size:13.5px;font-weight:500;color:#2563eb;margin-top:4px}
+.prop-row{display:flex;justify-content:space-between;align-items:center;margin-top:6px}
+.notif{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);margin-bottom:8px;border-left:3px solid transparent}
+.n-warn{border-left-color:#f59e0b}.n-info{border-left-color:#3b82f6}.n-success{border-left-color:#10b981}
+.notif-icon{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:13px}
+.ni-warn{background:#fef3c7}.ni-info{background:#dbeafe}.ni-success{background:#d1fae5}
+input,select{font-family:var(--font-sans);font-size:12px;background:var(--color-background-primary);border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);color:var(--color-text-primary);padding:5px 10px}
 </style>
 
 <div class="app">
   <nav class="sidebar">
-    <div class="logo">PropCRM<span>Real Estate Platform</span></div>
+    <div class="logo"><div class="logo-title">PropCRM</div><div class="logo-sub">Real Estate Platform</div></div>
     <div class="nav-item active" onclick="show('dashboard',this)">
       <svg class="nav-icon" viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.2"/><rect x="9" y="1" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.2"/><rect x="1" y="9" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.2"/><rect x="9" y="9" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.2"/></svg>
       Dashboard
@@ -326,7 +118,7 @@ input,select{font-family:var(--font-sans);font-size:13px;background:var(--color-
       Leads
     </div>
     <div class="nav-item" onclick="show('properties',this)">
-      <svg class="nav-icon" viewBox="0 0 16 16" fill="none"><path d="M2 7L8 2l6 5v7H2V7z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><rect x="5.5" y="10" width="2.5" height="4" rx=".5" fill="currentColor" opacity=".4"/><rect x="8" y="10" width="2.5" height="4" rx=".5" fill="currentColor" opacity=".4"/></svg>
+      <svg class="nav-icon" viewBox="0 0 16 16" fill="none"><path d="M2 7L8 2l6 5v7H2V7z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
       Properties
     </div>
     <div class="nav-item" onclick="show('deals',this)">
@@ -353,64 +145,62 @@ input,select{font-family:var(--font-sans);font-size:13px;background:var(--color-
 
   <main class="main">
 
-    <!-- DASHBOARD -->
     <div id="v-dashboard" class="view active">
-      <div class="page-title">Dashboard Overview</div>
+      <div class="page-title">Dashboard overview</div>
       <div class="cards-row">
-        <div class="metric"><div class="metric-label">Total Leads</div><div class="metric-val">247</div><div class="metric-sub">+18 this week</div></div>
-        <div class="metric"><div class="metric-label">Active Deals</div><div class="metric-val">34</div><div class="metric-sub">₹14.2 Cr pipeline</div></div>
-        <div class="metric"><div class="metric-label">Properties Listed</div><div class="metric-val">89</div><div class="metric-sub">12 sold this month</div></div>
-        <div class="metric"><div class="metric-label">Revenue (Month)</div><div class="metric-val">₹2.8 Cr</div><div class="metric-sub">+12% vs last month</div></div>
+        <div class="metric m-blue"><div class="metric-label lb-blue">Total leads</div><div class="metric-val">247</div><div class="metric-sub mb-blue">+18 this week</div></div>
+        <div class="metric m-purple"><div class="metric-label lb-purple">Active deals</div><div class="metric-val">34</div><div class="metric-sub mb-purple">₹14.2 Cr pipeline</div></div>
+        <div class="metric m-green"><div class="metric-label lb-green">Properties listed</div><div class="metric-val">89</div><div class="metric-sub mb-green">12 sold this month</div></div>
+        <div class="metric m-amber"><div class="metric-label lb-amber">Revenue (month)</div><div class="metric-val">₹2.8 Cr</div><div class="metric-sub mb-amber">+12% vs last month</div></div>
       </div>
       <div class="two-col">
         <div class="card">
-          <div class="card-head"><span class="card-title">Monthly Sales</span><span style="font-size:11px;color:var(--color-text-secondary)">Last 6 months</span></div>
+          <div class="card-head"><span class="card-title">Monthly sales</span><span style="font-size:11px;color:var(--color-text-secondary)">Last 6 months</span></div>
           <div class="chart-bars">
-            <div class="bar-wrap"><div class="bar" style="height:52px"></div><div class="bar-label">Nov</div></div>
-            <div class="bar-wrap"><div class="bar" style="height:68px"></div><div class="bar-label">Dec</div></div>
-            <div class="bar-wrap"><div class="bar" style="height:44px"></div><div class="bar-label">Jan</div></div>
-            <div class="bar-wrap"><div class="bar" style="height:76px"></div><div class="bar-label">Feb</div></div>
-            <div class="bar-wrap"><div class="bar" style="height:60px"></div><div class="bar-label">Mar</div></div>
-            <div class="bar-wrap"><div class="bar" style="height:85px;background:var(--color-text-info);opacity:.9"></div><div class="bar-label">Apr</div></div>
+            <div class="bar-wrap"><div class="bar" style="height:50px;background:#bfdbfe"></div><div class="bar-label">Nov</div></div>
+            <div class="bar-wrap"><div class="bar" style="height:65px;background:#93c5fd"></div><div class="bar-label">Dec</div></div>
+            <div class="bar-wrap"><div class="bar" style="height:42px;background:#bfdbfe"></div><div class="bar-label">Jan</div></div>
+            <div class="bar-wrap"><div class="bar" style="height:74px;background:#60a5fa"></div><div class="bar-label">Feb</div></div>
+            <div class="bar-wrap"><div class="bar" style="height:58px;background:#93c5fd"></div><div class="bar-label">Mar</div></div>
+            <div class="bar-wrap"><div class="bar" style="height:88px;background:#2563eb"></div><div class="bar-label">Apr</div></div>
           </div>
         </div>
         <div class="card">
           <div class="card-head"><span class="card-title">Lead conversion funnel</span></div>
-          <div style="font-size:12px">
-            <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:0.5px solid var(--color-border-tertiary)"><span>Total leads</span><strong>247</strong></div>
-            <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:0.5px solid var(--color-border-tertiary)"><span>Contacted</span><strong>198</strong></div>
-            <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:0.5px solid var(--color-border-tertiary)"><span>Qualified</span><strong>94</strong></div>
-            <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:0.5px solid var(--color-border-tertiary)"><span>In deal</span><strong>34</strong></div>
-            <div style="display:flex;justify-content:space-between;padding:5px 0"><span style="color:var(--color-text-success)">Closed</span><strong style="color:var(--color-text-success)">22</strong></div>
+          <div>
+            <div class="funnel-row"><span style="font-size:12px;min-width:72px">Total leads</span><div class="funnel-bar-bg"><div class="funnel-bar-fill" style="width:100%;background:#3b82f6"></div></div><strong style="font-size:12px;min-width:28px;text-align:right">247</strong></div>
+            <div class="funnel-row"><span style="font-size:12px;min-width:72px">Contacted</span><div class="funnel-bar-bg"><div class="funnel-bar-fill" style="width:80%;background:#60a5fa"></div></div><strong style="font-size:12px;min-width:28px;text-align:right">198</strong></div>
+            <div class="funnel-row"><span style="font-size:12px;min-width:72px">Qualified</span><div class="funnel-bar-bg"><div class="funnel-bar-fill" style="width:38%;background:#8b5cf6"></div></div><strong style="font-size:12px;min-width:28px;text-align:right">94</strong></div>
+            <div class="funnel-row"><span style="font-size:12px;min-width:72px">In deal</span><div class="funnel-bar-bg"><div class="funnel-bar-fill" style="width:14%;background:#f59e0b"></div></div><strong style="font-size:12px;min-width:28px;text-align:right">34</strong></div>
+            <div class="funnel-row"><span style="font-size:12px;min-width:72px;color:#059669">Closed</span><div class="funnel-bar-bg"><div class="funnel-bar-fill" style="width:9%;background:#10b981"></div></div><strong style="font-size:12px;min-width:28px;text-align:right;color:#059669">22</strong></div>
           </div>
         </div>
       </div>
       <div class="card">
         <div class="card-head"><span class="card-title">Recent activity</span></div>
         <div class="timeline">
-          <div class="tl-item"><div class="tl-time">Today, 10:30 AM</div><div class="tl-text"><span class="tl-bold">Rahul Sharma</span> — lead qualified by Priya Mehta</div></div>
-          <div class="tl-item"><div class="tl-time">Today, 9:15 AM</div><div class="tl-text">Deal closed — <span class="tl-bold">3BHK Sector 62 Noida</span> · ₹82 Lakhs</div></div>
-          <div class="tl-item"><div class="tl-time">Yesterday, 5:00 PM</div><div class="tl-text">New lead from website — <span class="tl-bold">Sonia Gupta</span></div></div>
-          <div class="tl-item"><div class="tl-time">Yesterday, 2:30 PM</div><div class="tl-text"><span class="tl-bold">Commercial shop MG Road</span> — listed by Arjun Singh</div></div>
+          <div class="tl-item tl-dot-green"><div class="tl-time">Today, 10:30 AM</div><div class="tl-text"><span class="tl-bold">Rahul Sharma</span> — lead qualified by Priya Mehta</div></div>
+          <div class="tl-item tl-dot-blue"><div class="tl-time">Today, 9:15 AM</div><div class="tl-text">Deal closed — <span class="tl-bold">3BHK Sector 62 Noida</span> · ₹82 Lakhs</div></div>
+          <div class="tl-item tl-dot-amber"><div class="tl-time">Yesterday, 5:00 PM</div><div class="tl-text">New lead from website — <span class="tl-bold">Sonia Gupta</span></div></div>
+          <div class="tl-item tl-dot-purple"><div class="tl-time">Yesterday, 2:30 PM</div><div class="tl-text"><span class="tl-bold">Commercial shop MG Road</span> — listed by Arjun Singh</div></div>
         </div>
       </div>
     </div>
 
-    <!-- LEADS -->
     <div id="v-leads" class="view">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
-        <div class="page-title" style="margin:0">Lead Management</div>
-        <button class="btn btn-primary" onclick="alert('Add Lead form coming soon!')">+ Add Lead</button>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+        <div class="page-title" style="margin:0">Lead management</div>
+        <button class="btn btn-primary">+ Add lead</button>
       </div>
       <div class="cards-row">
-        <div class="metric"><div class="metric-label">New</div><div class="metric-val" style="color:var(--color-text-info)">48</div></div>
-        <div class="metric"><div class="metric-label">Contacted</div><div class="metric-val" style="color:var(--color-text-warning)">79</div></div>
-        <div class="metric"><div class="metric-label">Qualified</div><div class="metric-val" style="color:var(--color-text-success)">94</div></div>
-        <div class="metric"><div class="metric-label">Lost</div><div class="metric-val" style="color:var(--color-text-danger)">26</div></div>
+        <div class="metric m-blue"><div class="metric-label lb-blue">New</div><div class="metric-val">48</div></div>
+        <div class="metric m-amber"><div class="metric-label lb-amber">Contacted</div><div class="metric-val">79</div></div>
+        <div class="metric m-green"><div class="metric-label lb-green">Qualified</div><div class="metric-val">94</div></div>
+        <div class="metric" style="background:#fee2e2;border:0.5px solid #fca5a5"><div class="metric-label" style="color:#991b1b">Lost</div><div class="metric-val">26</div></div>
       </div>
       <div class="card">
-        <div class="card-head"><span class="card-title">All Leads</span>
-          <select style="width:auto;font-size:12px;padding:4px 8px"><option>All sources</option><option>Website</option><option>Referral</option><option>Ads</option><option>Walk-in</option></select>
+        <div class="card-head"><span class="card-title">All leads</span>
+          <select style="width:auto;font-size:11px;padding:4px 8px"><option>All sources</option><option>Website</option><option>Referral</option><option>Ads</option><option>Walk-in</option></select>
         </div>
         <table>
           <thead><tr><th>Name</th><th>Phone</th><th>Budget</th><th>Preference</th><th>Source</th><th>Agent</th><th>Status</th></tr></thead>
@@ -426,15 +216,14 @@ input,select{font-family:var(--font-sans);font-size:13px;background:var(--color-
       </div>
     </div>
 
-    <!-- PROPERTIES -->
     <div id="v-properties" class="view">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
-        <div class="page-title" style="margin:0">Property Listings</div>
-        <button class="btn btn-primary">+ Add Property</button>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+        <div class="page-title" style="margin:0">Property listings</div>
+        <button class="btn btn-primary">+ Add property</button>
       </div>
       <div class="prop-grid">
         <div class="prop-card">
-          <div class="prop-img prop-img-res">🏠</div>
+          <div class="prop-img pi-res"><span class="prop-icon">🏠</span></div>
           <div class="prop-body">
             <div class="prop-title">3BHK Apartment, Sector 62</div>
             <div class="prop-sub">Noida, Uttar Pradesh · 1450 sqft</div>
@@ -443,16 +232,16 @@ input,select{font-family:var(--font-sans);font-size:13px;background:var(--color-
           </div>
         </div>
         <div class="prop-card">
-          <div class="prop-img prop-img-com">🏢</div>
+          <div class="prop-img pi-com"><span class="prop-icon">🏢</span></div>
           <div class="prop-body">
-            <div class="prop-title">Commercial Shop, MG Road</div>
+            <div class="prop-title">Commercial shop, MG Road</div>
             <div class="prop-sub">Gurgaon, Haryana · 640 sqft</div>
             <div class="prop-price">₹1,20,00,000</div>
             <div class="prop-row"><span class="badge b-avail">Available</span><span style="font-size:11px;color:var(--color-text-secondary)">Priya Mehta</span></div>
           </div>
         </div>
         <div class="prop-card">
-          <div class="prop-img prop-img-res" style="background:var(--color-background-success)">🏡</div>
+          <div class="prop-img pi-vil"><span class="prop-icon">🏡</span></div>
           <div class="prop-body">
             <div class="prop-title">4BHK Villa, DLF Phase 2</div>
             <div class="prop-sub">Gurgaon, Haryana · 3200 sqft</div>
@@ -461,7 +250,7 @@ input,select{font-family:var(--font-sans);font-size:13px;background:var(--color-
           </div>
         </div>
         <div class="prop-card">
-          <div class="prop-img prop-img-res" style="background:var(--color-background-danger)">🏘️</div>
+          <div class="prop-img pi-flt"><span class="prop-icon">🏘️</span></div>
           <div class="prop-body">
             <div class="prop-title">2BHK Flat, Indirapuram</div>
             <div class="prop-sub">Ghaziabad, UP · 980 sqft</div>
@@ -472,88 +261,88 @@ input,select{font-family:var(--font-sans);font-size:13px;background:var(--color-
       </div>
     </div>
 
-    <!-- DEALS -->
     <div id="v-deals" class="view">
-      <div class="page-title">Deal Pipeline</div>
+      <div class="page-title">Deal pipeline</div>
       <div class="cards-row">
-        <div class="metric"><div class="metric-label">Negotiation</div><div class="metric-val">12</div></div>
-        <div class="metric"><div class="metric-label">Agreement</div><div class="metric-val">8</div></div>
-        <div class="metric"><div class="metric-label">Closed</div><div class="metric-val">22</div></div>
-        <div class="metric"><div class="metric-label">Total Value</div><div class="metric-val">₹14.2Cr</div></div>
+        <div class="metric m-amber"><div class="metric-label lb-amber">Negotiation</div><div class="metric-val">12</div></div>
+        <div class="metric m-blue"><div class="metric-label lb-blue">Agreement</div><div class="metric-val">8</div></div>
+        <div class="metric m-green"><div class="metric-label lb-green">Closed</div><div class="metric-val">22</div></div>
+        <div class="metric m-purple"><div class="metric-label lb-purple">Total value</div><div class="metric-val">₹14.2Cr</div></div>
       </div>
       <div class="kanban">
         <div class="k-col">
+          <div class="k-strip ks-neg"></div>
           <div class="k-col-title">Negotiation (12)</div>
-          <div class="k-card"><div class="k-card-name">Rahul Sharma</div><div class="k-card-sub">3BHK Sector 62, Noida</div><div class="k-card-val">₹80L</div></div>
-          <div class="k-card"><div class="k-card-name">Vikram Rao</div><div class="k-card-sub">Commercial, Delhi</div><div class="k-card-val">₹2Cr</div></div>
-          <div class="k-card"><div class="k-card-name">Meena Joshi</div><div class="k-card-sub">2BHK Dwarka</div><div class="k-card-val">₹55L</div></div>
+          <div class="k-card"><div class="k-card-name">Rahul Sharma</div><div class="k-card-sub">3BHK Sector 62, Noida</div><div class="k-card-val kv-neg">₹80L</div></div>
+          <div class="k-card"><div class="k-card-name">Vikram Rao</div><div class="k-card-sub">Commercial, Delhi</div><div class="k-card-val kv-neg">₹2Cr</div></div>
+          <div class="k-card"><div class="k-card-name">Meena Joshi</div><div class="k-card-sub">2BHK Dwarka</div><div class="k-card-val kv-neg">₹55L</div></div>
         </div>
         <div class="k-col">
+          <div class="k-strip ks-agr"></div>
           <div class="k-col-title">Agreement (8)</div>
-          <div class="k-card"><div class="k-card-name">Pooja Singh</div><div class="k-card-sub">3BHK Indirapuram</div><div class="k-card-val">₹65L</div></div>
-          <div class="k-card"><div class="k-card-name">Anil Kumar</div><div class="k-card-sub">Villa Gurgaon Ph4</div><div class="k-card-val">₹1.8Cr</div></div>
+          <div class="k-card"><div class="k-card-name">Pooja Singh</div><div class="k-card-sub">3BHK Indirapuram</div><div class="k-card-val kv-agr">₹65L</div></div>
+          <div class="k-card"><div class="k-card-name">Anil Kumar</div><div class="k-card-sub">Villa Gurgaon Ph4</div><div class="k-card-val kv-agr">₹1.8Cr</div></div>
         </div>
         <div class="k-col">
+          <div class="k-strip ks-cls"></div>
           <div class="k-col-title">Closed (22)</div>
-          <div class="k-card"><div class="k-card-name">Suresh Mishra</div><div class="k-card-sub">2BHK Indirapuram</div><div class="k-card-val" style="color:var(--color-text-success)">₹58L ✓</div></div>
-          <div class="k-card"><div class="k-card-name">Kavita Tiwari</div><div class="k-card-sub">Office Space Noida</div><div class="k-card-val" style="color:var(--color-text-success)">₹1.1Cr ✓</div></div>
-          <div class="k-card"><div class="k-card-name">Dinesh Yadav</div><div class="k-card-sub">Shop Vaishali</div><div class="k-card-val" style="color:var(--color-text-success)">₹42L ✓</div></div>
+          <div class="k-card"><div class="k-card-name">Suresh Mishra</div><div class="k-card-sub">2BHK Indirapuram</div><div class="k-card-val kv-cls">₹58L ✓</div></div>
+          <div class="k-card"><div class="k-card-name">Kavita Tiwari</div><div class="k-card-sub">Office Space Noida</div><div class="k-card-val kv-cls">₹1.1Cr ✓</div></div>
+          <div class="k-card"><div class="k-card-name">Dinesh Yadav</div><div class="k-card-sub">Shop Vaishali</div><div class="k-card-val kv-cls">₹42L ✓</div></div>
         </div>
       </div>
     </div>
 
-    <!-- CLIENTS -->
     <div id="v-clients" class="view">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
-        <div class="page-title" style="margin:0">Client Management</div>
-        <button class="btn btn-primary">+ Add Client</button>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+        <div class="page-title" style="margin:0">Client management</div>
+        <button class="btn btn-primary">+ Add client</button>
       </div>
       <div class="card">
         <table>
-          <thead><tr><th>Client</th><th>Type</th><th>Phone</th><th>Interactions</th><th>Properties Visited</th><th>Last Contact</th></tr></thead>
+          <thead><tr><th>Client</th><th>Type</th><th>Phone</th><th>Interactions</th><th>Properties visited</th><th>Last contact</th></tr></thead>
           <tbody>
-            <tr><td><strong>Rahul Sharma</strong></td><td>Buyer</td><td>9876543210</td><td>7</td><td>3</td><td>Today</td></tr>
-            <tr><td><strong>Pooja Singh</strong></td><td>Buyer</td><td>9012345678</td><td>5</td><td>5</td><td>Yesterday</td></tr>
-            <tr><td><strong>Suresh Mishra</strong></td><td>Seller</td><td>8811223344</td><td>12</td><td>—</td><td>3 days ago</td></tr>
-            <tr><td><strong>Anil Kumar</strong></td><td>Buyer</td><td>9922334455</td><td>9</td><td>7</td><td>2 days ago</td></tr>
-            <tr><td><strong>Kavita Tiwari</strong></td><td>Seller</td><td>9833445566</td><td>6</td><td>—</td><td>1 week ago</td></tr>
+            <tr><td><strong>Rahul Sharma</strong></td><td><span class="badge b-new">Buyer</span></td><td>9876543210</td><td>7</td><td>3</td><td>Today</td></tr>
+            <tr><td><strong>Pooja Singh</strong></td><td><span class="badge b-new">Buyer</span></td><td>9012345678</td><td>5</td><td>5</td><td>Yesterday</td></tr>
+            <tr><td><strong>Suresh Mishra</strong></td><td><span class="badge b-qualified">Seller</span></td><td>8811223344</td><td>12</td><td>—</td><td>3 days ago</td></tr>
+            <tr><td><strong>Anil Kumar</strong></td><td><span class="badge b-new">Buyer</span></td><td>9922334455</td><td>9</td><td>7</td><td>2 days ago</td></tr>
+            <tr><td><strong>Kavita Tiwari</strong></td><td><span class="badge b-qualified">Seller</span></td><td>9833445566</td><td>6</td><td>—</td><td>1 week ago</td></tr>
           </tbody>
         </table>
       </div>
       <div class="card">
         <div class="card-title" style="margin-bottom:10px">Interaction log — Rahul Sharma</div>
         <div class="timeline">
-          <div class="tl-item"><div class="tl-time">Apr 19 · Call</div><div class="tl-text">Discussed shortlisted properties in Sector 62</div></div>
-          <div class="tl-item"><div class="tl-time">Apr 17 · Site visit</div><div class="tl-text">Visited 3BHK Sector 62 — interested</div></div>
-          <div class="tl-item"><div class="tl-time">Apr 14 · Email</div><div class="tl-text">Sent brochure of 3 properties matching budget</div></div>
-          <div class="tl-item"><div class="tl-time">Apr 12 · SMS</div><div class="tl-text">Follow-up reminder sent</div></div>
+          <div class="tl-item tl-dot-blue"><div class="tl-time">Apr 19 · Call</div><div class="tl-text">Discussed shortlisted properties in Sector 62</div></div>
+          <div class="tl-item tl-dot-green"><div class="tl-time">Apr 17 · Site visit</div><div class="tl-text">Visited 3BHK Sector 62 — interested</div></div>
+          <div class="tl-item tl-dot-amber"><div class="tl-time">Apr 14 · Email</div><div class="tl-text">Sent brochure of 3 properties matching budget</div></div>
+          <div class="tl-item tl-dot-purple"><div class="tl-time">Apr 12 · SMS</div><div class="tl-text">Follow-up reminder sent</div></div>
         </div>
       </div>
     </div>
 
-    <!-- AGENTS -->
     <div id="v-agents" class="view">
-      <div class="page-title">Agent Performance</div>
+      <div class="page-title">Agent performance</div>
       <div class="card">
-        <div class="card-title" style="margin-bottom:12px">Leaderboard — April 2026</div>
+        <div class="card-title" style="margin-bottom:14px">Leaderboard — April 2026</div>
         <div class="agent-row">
           <div class="avatar av-g">PM</div>
-          <div style="flex:1"><div class="agent-name">Priya Mehta</div><div class="agent-stat">22 leads · 8 deals</div><div class="progress"><div class="progress-fill" style="width:85%"></div></div></div>
+          <div style="flex:1"><div class="agent-name">Priya Mehta</div><div class="agent-stat">22 leads · 8 deals</div><div class="progress"><div class="progress-fill" style="width:85%;background:#10b981"></div></div></div>
           <div class="agent-deals">₹4.8Cr</div>
         </div>
         <div class="agent-row">
           <div class="avatar av-b">AS</div>
-          <div style="flex:1"><div class="agent-name">Arjun Singh</div><div class="agent-stat">18 leads · 6 deals</div><div class="progress"><div class="progress-fill" style="width:70%"></div></div></div>
+          <div style="flex:1"><div class="agent-name">Arjun Singh</div><div class="agent-stat">18 leads · 6 deals</div><div class="progress"><div class="progress-fill" style="width:70%;background:#3b82f6"></div></div></div>
           <div class="agent-deals">₹3.2Cr</div>
         </div>
         <div class="agent-row">
           <div class="avatar av-a">NK</div>
-          <div style="flex:1"><div class="agent-name">Neha Kapoor</div><div class="agent-stat">15 leads · 5 deals</div><div class="progress"><div class="progress-fill" style="width:58%"></div></div></div>
+          <div style="flex:1"><div class="agent-name">Neha Kapoor</div><div class="agent-stat">15 leads · 5 deals</div><div class="progress"><div class="progress-fill" style="width:58%;background:#f59e0b"></div></div></div>
           <div class="agent-deals">₹2.6Cr</div>
         </div>
         <div class="agent-row">
           <div class="avatar av-r">RS</div>
-          <div style="flex:1"><div class="agent-name">Rohit Saxena</div><div class="agent-stat">10 leads · 3 deals</div><div class="progress"><div class="progress-fill" style="width:38%"></div></div></div>
+          <div style="flex:1"><div class="agent-name">Rohit Saxena</div><div class="agent-stat">10 leads · 3 deals</div><div class="progress"><div class="progress-fill" style="width:38%;background:#ef4444"></div></div></div>
           <div class="agent-deals">₹1.4Cr</div>
         </div>
       </div>
@@ -562,22 +351,21 @@ input,select{font-family:var(--font-sans);font-size:13px;background:var(--color-
         <table>
           <thead><tr><th>Role</th><th>Leads</th><th>Properties</th><th>Reports</th><th>Agents</th></tr></thead>
           <tbody>
-            <tr><td><strong>Admin</strong></td><td>Full</td><td>Full</td><td>Full</td><td>Full</td></tr>
-            <tr><td><strong>Manager</strong></td><td>Full</td><td>Full</td><td>View</td><td>View</td></tr>
-            <tr><td><strong>Agent</strong></td><td>Own only</td><td>View</td><td>Own only</td><td>—</td></tr>
+            <tr><td><strong>Admin</strong></td><td><span class="badge b-qualified">Full</span></td><td><span class="badge b-qualified">Full</span></td><td><span class="badge b-qualified">Full</span></td><td><span class="badge b-qualified">Full</span></td></tr>
+            <tr><td><strong>Manager</strong></td><td><span class="badge b-qualified">Full</span></td><td><span class="badge b-qualified">Full</span></td><td><span class="badge b-new">View</span></td><td><span class="badge b-new">View</span></td></tr>
+            <tr><td><strong>Agent</strong></td><td><span class="badge b-contacted">Own only</span></td><td><span class="badge b-new">View</span></td><td><span class="badge b-contacted">Own only</span></td><td><span class="badge b-lost">—</span></td></tr>
           </tbody>
         </table>
       </div>
     </div>
 
-    <!-- REPORTS -->
     <div id="v-reports" class="view">
-      <div class="page-title">Reports & Analytics</div>
+      <div class="page-title">Reports & analytics</div>
       <div class="cards-row">
-        <div class="metric"><div class="metric-label">Lead conversion</div><div class="metric-val">8.9%</div></div>
-        <div class="metric"><div class="metric-label">Avg deal size</div><div class="metric-val">₹64L</div></div>
-        <div class="metric"><div class="metric-label">Avg close time</div><div class="metric-val">22 days</div></div>
-        <div class="metric"><div class="metric-label">Commission (Apr)</div><div class="metric-val">₹28L</div></div>
+        <div class="metric m-blue"><div class="metric-label lb-blue">Lead conversion</div><div class="metric-val">8.9%</div></div>
+        <div class="metric m-purple"><div class="metric-label lb-purple">Avg deal size</div><div class="metric-val">₹64L</div></div>
+        <div class="metric m-amber"><div class="metric-label lb-amber">Avg close time</div><div class="metric-val">22 days</div></div>
+        <div class="metric m-green"><div class="metric-label lb-green">Commission (Apr)</div><div class="metric-val">₹28L</div></div>
       </div>
       <div class="two-col">
         <div class="card">
@@ -585,10 +373,10 @@ input,select{font-family:var(--font-sans);font-size:13px;background:var(--color-
           <table>
             <thead><tr><th>Source</th><th>Leads</th><th>Converted</th><th>Rate</th></tr></thead>
             <tbody>
-              <tr><td>Website</td><td>98</td><td>12</td><td>12.2%</td></tr>
-              <tr><td>Ads</td><td>74</td><td>6</td><td>8.1%</td></tr>
-              <tr><td>Referral</td><td>51</td><td>8</td><td>15.7%</td></tr>
-              <tr><td>Walk-in</td><td>24</td><td>4</td><td>16.7%</td></tr>
+              <tr><td>Website</td><td>98</td><td>12</td><td style="color:#2563eb;font-weight:500">12.2%</td></tr>
+              <tr><td>Ads</td><td>74</td><td>6</td><td style="color:#d97706;font-weight:500">8.1%</td></tr>
+              <tr><td>Referral</td><td>51</td><td>8</td><td style="color:#059669;font-weight:500">15.7%</td></tr>
+              <tr><td>Walk-in</td><td>24</td><td>4</td><td style="color:#059669;font-weight:500">16.7%</td></tr>
             </tbody>
           </table>
         </div>
@@ -597,37 +385,36 @@ input,select{font-family:var(--font-sans);font-size:13px;background:var(--color-
           <table>
             <thead><tr><th>Type</th><th>Units sold</th><th>Revenue</th></tr></thead>
             <tbody>
-              <tr><td>Residential</td><td>16</td><td>₹9.4Cr</td></tr>
-              <tr><td>Commercial</td><td>4</td><td>₹3.8Cr</td></tr>
-              <tr><td>Plots</td><td>2</td><td>₹1.0Cr</td></tr>
+              <tr><td>Residential</td><td>16</td><td style="color:#2563eb;font-weight:500">₹9.4Cr</td></tr>
+              <tr><td>Commercial</td><td>4</td><td style="color:#7c3aed;font-weight:500">₹3.8Cr</td></tr>
+              <tr><td>Plots</td><td>2</td><td style="color:#d97706;font-weight:500">₹1.0Cr</td></tr>
             </tbody>
           </table>
         </div>
       </div>
-      <div class="card" style="text-align:center;padding:14px">
-        <button class="btn" style="margin-right:8px" onclick="alert('Exporting PDF report...')">Export PDF</button>
-        <button class="btn" onclick="alert('Exporting Excel report...')">Export Excel</button>
+      <div class="card" style="display:flex;gap:8px;justify-content:flex-end;padding:12px 14px">
+        <button class="btn">Export PDF</button>
+        <button class="btn btn-primary">Export Excel</button>
       </div>
     </div>
 
-    <!-- NOTIFICATIONS -->
     <div id="v-notifications" class="view">
-      <div class="page-title">Notifications & Follow-ups</div>
-      <div class="notif"><div class="notif-dot dot-warn"></div><div><div style="font-size:13px;font-weight:500">Follow-up due — Sonia Gupta</div><div style="font-size:12px;color:var(--color-text-secondary);margin-top:2px">No contact in 3 days · Assigned to Arjun Singh</div></div></div>
-      <div class="notif"><div class="notif-dot dot-info"></div><div><div style="font-size:13px;font-weight:500">New lead assigned — Amit Verma</div><div style="font-size:12px;color:var(--color-text-secondary);margin-top:2px">Budget ₹45L · 2BHK Meerut · Assigned to Neha Kapoor</div></div></div>
-      <div class="notif"><div class="notif-dot dot-success"></div><div><div style="font-size:13px;font-weight:500">Deal closed — Suresh Mishra</div><div style="font-size:12px;color:var(--color-text-secondary);margin-top:2px">₹58L · Commission ₹1.74L · Handled by Priya Mehta</div></div></div>
-      <div class="notif"><div class="notif-dot dot-warn"></div><div><div style="font-size:13px;font-weight:500">Agreement expiry reminder</div><div style="font-size:12px;color:var(--color-text-secondary);margin-top:2px">Anil Kumar deal agreement expires in 5 days</div></div></div>
-      <div class="notif"><div class="notif-dot dot-info"></div><div><div style="font-size:13px;font-weight:500">Property inquiry — 3BHK Sector 62</div><div style="font-size:12px;color:var(--color-text-secondary);margin-top:2px">Website inquiry at 9:12 AM · Auto-assigned to Priya Mehta</div></div></div>
+      <div class="page-title">Notifications & follow-ups</div>
+      <div class="notif n-warn"><div class="notif-icon ni-warn">⚠</div><div><div style="font-size:12.5px;font-weight:500">Follow-up due — Sonia Gupta</div><div style="font-size:11.5px;color:var(--color-text-secondary);margin-top:2px">No contact in 3 days · Assigned to Arjun Singh</div></div></div>
+      <div class="notif n-info"><div class="notif-icon ni-info">↗</div><div><div style="font-size:12.5px;font-weight:500">New lead assigned — Amit Verma</div><div style="font-size:11.5px;color:var(--color-text-secondary);margin-top:2px">Budget ₹45L · 2BHK Meerut · Assigned to Neha Kapoor</div></div></div>
+      <div class="notif n-success"><div class="notif-icon ni-success">✓</div><div><div style="font-size:12.5px;font-weight:500">Deal closed — Suresh Mishra</div><div style="font-size:11.5px;color:var(--color-text-secondary);margin-top:2px">₹58L · Commission ₹1.74L · Handled by Priya Mehta</div></div></div>
+      <div class="notif n-warn"><div class="notif-icon ni-warn">⏰</div><div><div style="font-size:12.5px;font-weight:500">Agreement expiry reminder</div><div style="font-size:11.5px;color:var(--color-text-secondary);margin-top:2px">Anil Kumar deal agreement expires in 5 days</div></div></div>
+      <div class="notif n-info"><div class="notif-icon ni-info">🔔</div><div><div style="font-size:12.5px;font-weight:500">Property inquiry — 3BHK Sector 62</div><div style="font-size:11.5px;color:var(--color-text-secondary);margin-top:2px">Website inquiry at 9:12 AM · Auto-assigned to Priya Mehta</div></div></div>
     </div>
 
   </main>
 </div>
 
 <script>
-function show(id, el) {
-  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
-  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-  document.getElementById('v-' + id).classList.add('active');
+function show(id,el){
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+  document.getElementById('v-'+id).classList.add('active');
   el.classList.add('active');
 }
 </script>
